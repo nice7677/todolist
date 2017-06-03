@@ -1,6 +1,5 @@
 package kr.or.connect.todo.persistence;
 
-import kr.or.connect.todo.api.Todo;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
@@ -9,7 +8,7 @@ import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
-
+import kr.or.connect.todo.Todo;
 
 import javax.sql.DataSource;
 import java.util.*;

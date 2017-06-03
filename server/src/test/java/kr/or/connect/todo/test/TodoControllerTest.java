@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.sql.Timestamp;
 
 import kr.or.connect.todo.AppConfig;
-import kr.or.connect.todo.api.Todo;
+import kr.or.connect.todo.Todo;
 import kr.or.connect.todo.persistence.TodoDao;
  
 import java.text.SimpleDateFormat;

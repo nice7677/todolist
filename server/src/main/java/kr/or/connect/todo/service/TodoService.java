@@ -1,6 +1,6 @@
 package kr.or.connect.todo.service;
 
-import kr.or.connect.todo.api.Todo;
+import kr.or.connect.todo.Todo;
 import kr.or.connect.todo.persistence.TodoDao;
 import org.springframework.stereotype.Service;
 import java.util.Collection;

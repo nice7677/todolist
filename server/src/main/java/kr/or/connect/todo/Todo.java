@@ -1,4 +1,4 @@
-package kr.or.connect.todo.api;
+package kr.or.connect.todo;
 
 import org.springframework.web.bind.annotation.RestController;
 

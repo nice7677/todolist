@@ -1,5 +1,6 @@
 package kr.or.connect.todo.api;
 
+import kr.or.connect.todo.Todo;
 import kr.or.connect.todo.service.TodoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
