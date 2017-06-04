@@ -4,7 +4,7 @@
     // Your starting point. Enjoy the ride!
     $(document).ready(
         start(), page(),
-        console.log('testtest')
+
     );
 
     function start() {
@@ -116,7 +116,6 @@
                 }
                 $(".todo-count > strong").html(count);
                 $("input:checkbox").on("click").unbind("click").bind("click", function() {
-                    if ($(this).prop('checked')) {
                         var id = $(this).prop('id');
                         var todo = $("#l" + id).text();
                         var jdata = { "todo": todo, "completed": 1, "date": now }
@@ -129,11 +128,9 @@
                                 $('#' + id).addClass('completed');
                                 page()
                             }
-                        })
-                    }
+                        })      
                 });
                 $(".destroy").unbind("click").bind("click", function() {
-                    if ($(this).prop('click')) {
                         var id = $(this).prop('id');
                         $.ajax({
                             url: 'http://localhost:8080/api/todos/' + id,
@@ -141,12 +138,11 @@
                             dataType: 'json',
                             success: function(data) {
                                 $('#' + id).remove();
-                                $('.todo-count > strong').html(comcount - 1)
-                                page()
+                                page();
                             }
                         })
                     }
-                });
+                );
                 $('#all').click(function() {
                     $('.filters > li > a.selected').removeClass();
                     $('#all').addClass('selected');
@@ -174,14 +170,25 @@
                 $('#completed').click(function() {
                     $('.filters > li > a.selected').removeClass();
                     $('#completed').addClass('selected');
-                    for (var a = 0; a < count; a++) {
-                        if (completed[a] == 1) {
-                            $('#' + id[a]).show();
+                    for (var i = 0; i < count; i++) {
+                        if (completed[i] == 1) {
+                            $('#' + id[i]).show();
                         } else {
-                            $('#' + id[a]).hide();
+                            $('#' + id[i]).hide();
                         }
                     }
                     $('.todo-count > strong').html(uncomcount);
+                })
+                $('.clear-completed').unbind("click").bind("click", function(){
+                    $.ajax({
+                            url: 'http://localhost:8080/api/todos/completed/delete',
+                            method: 'delete',
+                            dataType: 'json',
+                            success: function(data) {
+                                $('.todo-list').children('li.completed').remove();
+                                page();
+                            }
+                        })
                 })
             }
         })

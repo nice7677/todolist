@@ -46,13 +46,20 @@ public class TodoController {
     void update(@PathVariable Integer id, @RequestBody Todo todo) {
         todo.setId(id);
         service.update(todo);
-        log.info("Todo update : {}", id);
+        log.info("Todo update id : {}", id);
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     void delete(@PathVariable Integer id) {
         service.delete(id);
-        log.info("Todo delete : {}", id);
+        log.info("Todo delete id : {}", id);
+    }
+    
+    @DeleteMapping("/completed/delete")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    void delcompleted(){
+    	service.delcompleted();
+    	log.info("Todo Completed All Delete!!");
     }
 }

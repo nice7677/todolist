@@ -36,4 +36,8 @@ public class TodoService {
         int old = dao.deleteById(id);
         return old == 1;
     }
+    
+    public int delcompleted(){
+    	return dao.deleteCompleted();
+    }
 }
